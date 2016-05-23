@@ -1,0 +1,29 @@
+<h1>Listing orders</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Email</th>
+		<th>Pay type</th>
+		<th>Items</th>
+	</tr>
+
+	<% @orders.each do |order| %>
+	<tr>
+		<td><%=h order.name %></td>
+		<td><%=h order.address %></td>
+		<td><%=h order.email %></td>
+		<td><%=h order.pay_type %></td>
+		<td>
+			<ul>
+			<% order.line_items.each do |item| %>
+			<li>
+				<%=h item.product.title %> * <%=h item.quantity %>
+			</li>
+			<% end %>
+			</ul>
+		</td>
+	</tr>
+	<% end %>
+</table>
