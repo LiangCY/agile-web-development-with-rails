@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AdminControllerTest < ActionController::TestCase
-<<<<<<< HEAD
   
   fixtures :users
 
@@ -29,10 +28,4 @@ class AdminControllerTest < ActionController::TestCase
 		post :login, :name => dave.name, :password => 'wrong'
 		assert_template 'login'
 	end
-=======
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
->>>>>>> eb605ed9905513838c6d8045e5f853b90589ffc4
 end
