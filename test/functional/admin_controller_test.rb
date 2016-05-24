@@ -17,15 +17,15 @@ class AdminControllerTest < ActionController::TestCase
   end
 
   test "login" do
-  	dave = users(:dave)
-  	post :login, :name => dave.name, :password => 'secret'
-  	assert_redirected_to :action => "index"
-  	assert_equal dave.id, session[:user_id]
-	end
+    dave = users(:dave)
+    post :login, :name => dave.name, :password => 'secret'
+    assert_redirected_to :action => "index"
+    assert_equal dave.id, session[:user_id]
+  end
 
-	test "bad password" do
-		dave = users(:dave)
-		post :login, :name => dave.name, :password => 'wrong'
-		assert_template 'login'
-	end
+  test "bad password" do
+    dave = users(:dave)
+    post :login, :name => dave.name, :password => 'wrong'
+    assert_template 'login'
+  end
 end
