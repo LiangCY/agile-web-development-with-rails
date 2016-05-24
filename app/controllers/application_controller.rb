@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   layout 'store'
-	before_filter :authorize, :except => :login
+  before_filter :authorize, :except => :login
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -11,12 +11,12 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   protected
-  	def authorize
-  		unless User.find_by_id(session[:user_id])
+    def authorize
+      unless User.find_by_id(session[:user_id])
         session[:original_uri] = request.request_uri
-  			flash[:notice] = "Please login"
-  			redirect_to :controller => 'admin', :action => 'login'
-  		end
-  	end
+        flash[:notice] = "Please login"
+        redirect_to :controller => 'admin', :action => 'login'
+      end
+    end
 
 end
